@@ -90,6 +90,8 @@
                         <div class="pt-4">
                             <% if (CartItems === null) { %>
                                 <h5 class="mb-4">Cart is Empty</h5>
+                            <% } else if (CartItems.lenght === 0) { %>
+                                <h5 class="mb-4">Cart is Empty</h5>
                             <% } else {%>
                                 <h5 class="mb-4">Cart (<span><%= CartItems.length %></span> items)</h5>
                                 <% CartItems.forEach(element => { %>
@@ -154,7 +156,7 @@
                     <!-- Card -->
                     <div class="mb-3">
                         <div class="pt-4">
-                            <% if (CartItems !== null) { %>
+                            <% if (CartItems !== null && CartItems.lenght !== 0) { %>
                             <h5 class="mb-3">Order summary</h5>
                             <ul class="list-group list-group-flush">
                                 
