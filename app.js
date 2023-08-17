@@ -1,6 +1,6 @@
 const express = require('express');
 const passport = require('passport');
-const session = require('express-session');
+const session = require('cookie-session');
 require('dotenv').config();
 
 const app = express();
@@ -81,7 +81,7 @@ const RegisterRouter = require("./routes/userRegister");
 app.use("/register", RegisterRouter);
 
 app.get('/logout', (req, res) => {
-  req.session.destroy();
+  req.session = null;
   res.redirect('/product');
 })
 
@@ -99,5 +99,5 @@ app.get("/contact", (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
- //console.log(`Server is running on port ${PORT}`);
+ console.log(`Server is running on port ${PORT}`);
 });

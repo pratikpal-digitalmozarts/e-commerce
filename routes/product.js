@@ -5,6 +5,7 @@ const { getProducts, getCategoryProducts } = require('../models/product');
 
 
 router.get('/?', (req, res) => {
+    
     const productId = req.query.id;
     const category = req.query.category;
     const user = req.user;
@@ -61,24 +62,10 @@ router.get('/?', (req, res) => {
     else{
         getProducts()
             .then(products => {
+                
                 if (products) {
-                    // console.log('Retrieved products:', JSON.stringify(products));
-                    // const user = req.user;
-                    shuffle(products);
-                    //console.log("suffeled")
-                    
-                    let j=15;
-                    let categorySet = [];
-                    let categoryProduct = [];
-                    while(categorySet.length <= 3){
-                        if(!(categorySet.includes(products[j]["category"]))){
-                            categorySet.push(products[j]["category"])
-                            categoryProduct.push(products[j]);
-                            j++;
-                        }
-                    }
-                    
-                    res.render('index', { user, products, categoryProduct });
+
+                    res.render('index', { user, products });
                 } else {
                     console.log('Failed to retrieve products.');
                 }
@@ -111,22 +98,6 @@ router.get('/category', (req, res) => {
     })
 });
 
-function shuffle(array) {
-    let currentIndex = array.length,  randomIndex;
-  
-    // While there remain elements to shuffle.
-    while (currentIndex != 0) {
-  
-      // Pick a remaining element.
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-  
-      // And swap it with the current element.
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex], array[currentIndex]];
-    }
-  
-    return array;
-}
+
 
 module.exports = router

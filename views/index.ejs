@@ -191,11 +191,11 @@
         <h1 class="text-capitalize">Shop By category</h1>
       </div>
       <div class="row">
-        <% for (let i = 0; i < 3; i=i+1) { %>
+        <% for (let i = 0; i < 15; i=i+5) { %>
         <div class="col-md-4 col-12 mb-small-5">
           <div class="card bg-dark text-white" >
-            <a href="/product?category=<%= categoryProduct[i].category %> " >
-              <img class="card-img img img-fluid" src=" <%= categoryProduct[i].thumbnail %> " alt="Card image" style=" height: 412px; ">
+            <a href="/product?category=<%= products[i].category %> " >
+              <img class="card-img img img-fluid" src=" <%= products[i].thumbnail %> " alt="Card image" style=" height: 412px; ">
             </a>
           </div>
         </div>

@@ -2,7 +2,4 @@ package-lock.json
 node_modules/*
 .env
 
-views/assets/profile.ejs
-views/assets/trial.ejs
-views/assets/search.ejs
 
