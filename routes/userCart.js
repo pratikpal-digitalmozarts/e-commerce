@@ -19,10 +19,14 @@ router.post('/', async (req, res) => {
 
 router.get('/items', async (req, res) => {
     const user = req.user;
-    console.log("user from line 21 of userCart", user);
+    // console.log("user from line 21 of userCart", user);
     if(req.isAuthenticated()){
-        const CartItems = await getItemIds(req.user["_id"]);
-        console.log(CartItems);
+        let CartItems = await getItemIds(req.user["_id"]);
+        // console.log(Object.keys(CartItems).length);
+        if(Object.keys(CartItems).length === parseInt(0)){
+          CartItems = null;
+          // console.log(CartItems);
+        }
         res.render("cart", { user, CartItems });
       }
       else{
