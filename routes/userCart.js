@@ -49,6 +49,9 @@ router.get('/checkout', async (req, res) => {
       if(CartItems === null ){
         res.render("cart", { user, CartItems });
       }
+      else if(CartItems.length === 0 ){
+        res.render("cart", { user, CartItems });
+      }
       else{
         res.render("checkout", { user, CartItems });
       }
