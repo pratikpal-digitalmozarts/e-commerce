@@ -23,7 +23,7 @@ router.get('/items', async (req, res) => {
     if(req.isAuthenticated()){
         let CartItems = await getItemIds(req.user["_id"]);
         // console.log(Object.keys(CartItems).length);
-        if(Object.keys(CartItems).length === parseInt(0)){
+        if((CartItems !== null) && Object.keys(CartItems).length === parseInt(0)){
           CartItems = null;
           // console.log(CartItems);
         }
