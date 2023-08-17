@@ -61,13 +61,11 @@ const CreateUser = async (userData) => {
             if(douserexist !== null){
                 return douserexist;
             }
-            else{
-                const newUser = new User(userData);
-                const savedUser = await newUser.save();
-                console.log('User created:');
-                return savedUser;
-            }
         }
+        const newUser = new User(userData);
+        const savedUser = await newUser.save();
+        console.log('User created:');
+        return savedUser;
 
         
         
