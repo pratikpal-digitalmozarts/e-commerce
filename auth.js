@@ -12,7 +12,7 @@ require('dotenv').config();
 passport.use(new GoogleStrategy({
     clientID: process.env.ClientID,
     clientSecret: process.env.ClientSecret,
-    callbackURL: 'http://localhost:3000/google/callback',
+    callbackURL: 'https://e-commerce-p3c4.onrender.com/google/callback',
     passReqToCallback : true
   }, async (request, accessToken, refreshToken, profile, done) => {
     // Store user data or perform other actions
