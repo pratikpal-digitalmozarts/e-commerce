@@ -4,8 +4,8 @@ const LocalStrategy = require('passport-local').Strategy;
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const { User,CreateUser } = require('./models/user');
 const { connectToDatabase } = require('./connect');
-const dotenv = require('dotenv');
-dotenv.config({ path: './config.env' });
+require('dotenv').config();
+
 
 
 // Configure Passport

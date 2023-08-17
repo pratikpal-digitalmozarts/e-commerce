@@ -1,6 +1,6 @@
 package-lock.json
 node_modules/*
-config.env
+.env
 
 views/assets/profile.ejs
 views/assets/trial.ejs
